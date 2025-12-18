@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -25,10 +26,15 @@ func main() {
 		WriteTimeout: 1000 * time.Millisecond,
 	}
 	db, err := sql.Open("sqlite3", "data/usersAuth.db")
-	authDB := sqliteRepoAUTH.NewSQLiteRepo(db)
-
-	err := server.ListenAndServe()
 	if err != nil {
-		log.Println(err)
+		fmt.Println(err.Error())
+	}
+	authDB := sqliteRepoAUTH.NewSQLiteRepo(db)
+	_ = authDB
+	{
+		err := server.ListenAndServe()
+		if err != nil {
+			log.Println(err)
+		}
 	}
 }
