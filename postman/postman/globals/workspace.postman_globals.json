@@ -1,0 +1,16 @@
+{
+  "id": "145ec45a-1fa0-4463-8447-06323889f29e",
+  "name": "Globals",
+  "values": [
+    {
+      "key": "JWTsecret",
+      "value": "",
+      "enabled": true,
+      "type": "secret",
+      "description": ""
+    }
+  ],
+  "_postman_variable_scope": "globals",
+  "_postman_exported_at": "2026-01-13T10:13:35.514Z",
+  "_postman_exported_using": "Postman/11.0.0"
+}

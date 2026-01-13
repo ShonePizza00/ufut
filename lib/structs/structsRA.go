@@ -1,13 +1,14 @@
 package structsUFUT
 
 type TokenResponse struct {
-	Token string `json:"token"`
+	JWT string `json:"jwt"`
+	RT  string `json:"rt"`
 }
 
 type UserGeneral struct {
 	Login      string `json:"login"`
 	PasswdHash string `json:"passwdHash"`
-	Token      string `json:"token"`
+	UserID     string `json:"userID"`
 }
 
 type UserData struct {
@@ -22,13 +23,18 @@ type UpdatePasswdRequest struct {
 
 type UserUpdatePasswd struct {
 	Login     string `json:"login"`
-	Passwd    string `json:"passwd"`
-	NewPasswd string `json:"newPasswd"`
+	Passwd    string `json:"password"`
+	NewPasswd string `json:"newPassword"`
 }
 
 type UserUpdatePasswdHash struct {
 	Login         string `json:"login"`
 	PasswdHash    string `json:"passwdHash"`
 	NewPasswdHash string `json:"newPasswdHash"`
-	NewToken      string `json:"newToken"`
+}
+
+type JWTUpdate struct {
+	OldRT      string `json:"oldRT"`
+	NewRT      string `json:"newRT"`
+	TimeOffset int64  `json:"timeOffset"`
 }

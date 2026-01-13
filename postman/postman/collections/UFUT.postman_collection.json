@@ -1,0 +1,1038 @@
+{
+  "info": {
+    "_postman_id": "6a993d9c-2e7e-4480-800e-bea911b36f3b",
+    "name": "UFUT",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Auth_AuthUser",
+          "id": "468f9aea-db8e-46ad-8e16-722f06e7df91",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"login\": \"abc\",\r\n    \"password\": \"abcNew\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/user/authUser",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "authUser"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Auth_AuthStaff",
+          "id": "8af4f635-383b-4f19-9c90-a769370fece1",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"login\": \"abcStaff\",\r\n    \"password\": \"abcStaffNew\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/staff/authStaff",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "staff",
+                "authStaff"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Auth_RegisterUser",
+          "id": "0f13b15e-353a-4e70-b9fe-e48980ef1bfd",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"login\": \"abc\",\r\n    \"password\": \"abc\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/user/registerUser",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "registerUser"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Auth_RegisterStaff",
+          "id": "eba9fd27-fcff-43f8-921e-a7fc5bc77403",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"login\": \"abcStaff\",\r\n    \"password\": \"abcStaff\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/staff/registerStaff",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "staff",
+                "registerStaff"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Auth_UpdateUserPasswd",
+          "id": "44a8742e-223a-4425-b953-54308209b8ca",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"login\": \"abc\",\r\n    \"password\": \"abc\",\r\n    \"newPassword\": \"abcNew\"\r\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/user/updateUserPasswd",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "updateUserPasswd"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Auth_UpdateStaffPasswd",
+          "id": "69d4a800-a218-4d01-b317-dee806b1f721",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"login\": \"abcStaff\",\r\n    \"password\": \"abcStaff\",\r\n    \"newPassword\": \"abcStaffNew\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/staff/updateStaffPasswd",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "staff",
+                "updateStaffPasswd"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Auth_VerifyTokenUser",
+          "id": "c3d7427f-8ad9-4f59-a7e1-67323195dbf2",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/user/verifyTokenUser?token=bb60ff68-2ad6-42ff-a706-8ad9a0b994e725748345-4761-4759-bb20-fdfd7915783e&passphrase={{PASSPHRASE}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "verifyTokenUser"
+              ],
+              "query": [
+                {
+                  "key": "token",
+                  "value": "bb60ff68-2ad6-42ff-a706-8ad9a0b994e725748345-4761-4759-bb20-fdfd7915783e"
+                },
+                {
+                  "key": "passphrase",
+                  "value": "{{PASSPHRASE}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Auth_VerifyTokenStaff",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0aeee5e7-5041-4473-a21b-8a46f304cf4d",
+                "exec": [
+                  "// Visualization Script",
+                  "// Visualization Script",
+                  "var template = `",
+                  "<style>",
+                  "    .container {",
+                  "        font-family: Arial, sans-serif;",
+                  "        padding: 20px;",
+                  "        max-width: 600px;",
+                  "        margin: 0 auto;",
+                  "    }",
+                  "    .card {",
+                  "        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);",
+                  "        border-radius: 12px;",
+                  "        padding: 24px;",
+                  "        color: white;",
+                  "        margin-bottom: 24px;",
+                  "        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);",
+                  "    }",
+                  "    .card-label {",
+                  "        font-size: 14px;",
+                  "        opacity: 0.9;",
+                  "        margin-bottom: 8px;",
+                  "        text-transform: uppercase;",
+                  "        letter-spacing: 1px;",
+                  "    }",
+                  "    .card-value {",
+                  "        font-size: 14px;",
+                  "        font-weight: bold;",
+                  "        word-break: break-all;",
+                  "    }",
+                  "    .chart-container {",
+                  "        background: white;",
+                  "        border-radius: 12px;",
+                  "        padding: 20px;",
+                  "        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);",
+                  "    }",
+                  "    .chart-title {",
+                  "        text-align: center;",
+                  "        color: #333;",
+                  "        margin-bottom: 16px;",
+                  "        font-size: 16px;",
+                  "    }",
+                  "</style>",
+                  "",
+                  "<div class=\"container\">",
+                  "    <div class=\"card\">",
+                  "        <div class=\"card-label\">User ID</div>",
+                  "        <div class=\"card-value\">{{userID}}</div>",
+                  "    </div>",
+                  "    ",
+                  "    <div class=\"chart-container\">",
+                  "        <div class=\"chart-title\">Response Status</div>",
+                  "        <canvas id=\"statusChart\" height=\"200\"></canvas>",
+                  "    </div>",
+                  "</div>",
+                  "",
+                  "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script>",
+                  "<script>",
+                  "    var ctx = document.getElementById(\"statusChart\");",
+                  "    var statusChart = new Chart(ctx, {",
+                  "        type: \"pie\",",
+                  "        data: {",
+                  "            labels: [\"userID Present\"],",
+                  "            datasets: [{",
+                  "                data: [100],",
+                  "                backgroundColor: [\"#667eea\"],",
+                  "                borderColor: [\"#ffffff\"],",
+                  "                borderWidth: 2",
+                  "            }]",
+                  "        },",
+                  "        options: {",
+                  "            legend: {",
+                  "                display: true,",
+                  "                position: \"bottom\"",
+                  "            },",
+                  "            title: {",
+                  "                display: false",
+                  "            }",
+                  "        }",
+                  "    });",
+                  "",
+                  "    pm.getData(function (err, value) {",
+                  "        if (value.userIDPresent) {",
+                  "            statusChart.data.labels = [\"userID Present\"];",
+                  "            statusChart.data.datasets[0].data = [100];",
+                  "            statusChart.data.datasets[0].backgroundColor = [\"#667eea\"];",
+                  "        } else {",
+                  "            statusChart.data.labels = [\"userID Missing\"];",
+                  "            statusChart.data.datasets[0].data = [100];",
+                  "            statusChart.data.datasets[0].backgroundColor = [\"#e74c3c\"];",
+                  "        }",
+                  "        statusChart.update();",
+                  "    });",
+                  "</script>",
+                  "`;",
+                  "",
+                  "function constructVisualizerPayload() {",
+                  "    var response = pm.response.json();",
+                  "    return {",
+                  "        userID: response.userID || \"N/A\",",
+                  "        userIDPresent: response.userID ? true : false",
+                  "    };",
+                  "}",
+                  "",
+                  "pm.visualizer.set(template, constructVisualizerPayload());"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "18c5357f-bbd7-4cae-8254-bd4abb8d31b0",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/staff/verifyTokenStaff?token=0d264a71-6dd6-40c4-a428-dfe98fcd92892f91d52b-50b2-43ea-abeb-62b2bcb719e7&passphrase={{PASSPHRASE}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "staff",
+                "verifyTokenStaff"
+              ],
+              "query": [
+                {
+                  "key": "token",
+                  "value": "0d264a71-6dd6-40c4-a428-dfe98fcd92892f91d52b-50b2-43ea-abeb-62b2bcb719e7"
+                },
+                {
+                  "key": "passphrase",
+                  "value": "{{PASSPHRASE}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateJWTUser",
+          "id": "75b84045-27d8-4e7f-a36c-c9934a74f633",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "b384fc5d-81fd-4d52-8761-07181db1fab2"
+              }
+            ],
+            "url": {
+              "raw": "{{baseURL}}/api/user/updateJWTUser",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "updateJWTUser"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "1ca827fe-1fff-4f07-9c2e-08093643e04d"
+    },
+    {
+      "name": "Marketplace",
+      "item": [
+        {
+          "name": "Market_O_PlaceOrder",
+          "id": "3bc92c46-2729-4910-bb00-92b3090aeffd",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "30797833-57d2-4519-9a6a-cb3c551f073f"
+              }
+            ],
+            "url": {
+              "raw": "{{baseURL}}/api/order/placeOrder",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "order",
+                "placeOrder"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Market_O_RemoveOrder",
+          "id": "c5d99010-be4e-4ed1-9dc7-af11cfbd3aba",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "04b43460-2024-453b-82d4-6b873f7cc4cf"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"token\": \"bb60ff68-2ad6-42ff-a706-8ad9a0b994e725748345-4761-4759-bb20-fdfd7915783e\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/order/removeOrder",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "order",
+                "removeOrder"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Market_O_OrderStatus",
+          "id": "81812288-e13e-46f5-96ed-83ffdbd09e92",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/order/orderStatus?orderID",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "order",
+                "orderStatus"
+              ],
+              "query": [
+                {
+                  "key": "orderID",
+                  "value": null,
+                  "uuid": "a73bbf52-d190-4412-b74a-c354f81f57c7"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Market_O_UserOrders",
+          "id": "7b253949-f97d-4690-b986-2a9f5bb391cf",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/order/userOrders?token&status",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "order",
+                "userOrders"
+              ],
+              "query": [
+                {
+                  "key": "token",
+                  "value": null,
+                  "uuid": "03b98e4b-6acf-4c48-8a46-7a96c3567397"
+                },
+                {
+                  "key": "status",
+                  "value": null,
+                  "uuid": "0e00893a-d87d-4a17-bf0f-e319babeec92"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Market_C_AddToCart",
+          "id": "e3969f4f-1b35-484d-b778-e01550540fc5",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "44e0a65a-2949-4d56-99fa-f20ae2de7536"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"itemID\": \"\",\r\n    \"quantity\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/cart/addToCart",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "cart",
+                "addToCart"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Market_C_RemoveFromCart",
+          "id": "53e8c529-fdcc-4195-be0d-aac10df9d56a",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "a8089528-8c00-4b65-a0cc-859fae6cc469"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"token\": \"\",\r\n    \"itemID\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/cart/removeFromCart",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "cart",
+                "removeFromCart"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Market_C_IncreaseItem",
+          "id": "d069082f-ef56-48e0-8c78-d8ab04dcdca6",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "39c3b382-4252-407e-bfc6-163e9de3a978"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"token\": \"\",\r\n    \"itemID\": \"\",\r\n    \"quantity\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/cart/increaseItems",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "cart",
+                "increaseItems"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Market_C_DecreaseItem",
+          "id": "53f03ae3-9ca2-48ad-a9c9-e69839fb8ad4",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "9094cdaf-45ac-4ca1-941e-90ce58415af7"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"token\": \"\",\r\n    \"itemID\": \"\",\r\n    \"quantity\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/cart/decreaseItems",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "cart",
+                "decreaseItems"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Market_C_ListCart",
+          "id": "906ebc33-a5c6-419d-a768-174474e55766",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/cart/listCart",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "cart",
+                "listCart"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Market_C_ClearCart",
+          "id": "9e165945-44c1-403a-817c-f88166f6a31d",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "685edff0-7a50-4817-9c3b-652b4563b8c8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"token\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/cart/clearCart",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "cart",
+                "clearCart"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "fc8f9109-d374-4e72-b6fa-bdded74d3ca5",
+      "auth": {
+        "type": "jwt",
+        "jwt": [
+          {
+            "key": "payload",
+            "value": "{\r\n    \"getterID\": \"019bb6e8-3425-7972-bfdf-5a8563b9b69d\",\r\n    \"exp\": 1768303852\r\n}",
+            "type": "string"
+          },
+          {
+            "key": "secret",
+            "value": "{{JWTsecret}}",
+            "type": "string"
+          },
+          {
+            "key": "algorithm",
+            "value": "HS256",
+            "type": "string"
+          },
+          {
+            "key": "isSecretBase64Encoded",
+            "value": false,
+            "type": "boolean"
+          },
+          {
+            "key": "addTokenTo",
+            "value": "header",
+            "type": "string"
+          },
+          {
+            "key": "headerPrefix",
+            "value": "Bearer",
+            "type": "string"
+          },
+          {
+            "key": "queryParamKey",
+            "value": "token",
+            "type": "string"
+          },
+          {
+            "key": "header",
+            "value": "{}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Showcase",
+      "item": [
+        {
+          "name": "Show_U_Categories",
+          "id": "683f5e0f-67c3-4a2e-84eb-c79caa5e7be8",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/user/categories",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show_U_ItemsByParams",
+          "id": "92139991-f465-42c1-b99d-5c6d7dbf6011",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/user/itemsByParams?category&price&startindex&count&orderby",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "itemsByParams"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": null,
+                  "type": "text",
+                  "uuid": "190a02bc-cf39-4452-bc26-527faab93c82"
+                },
+                {
+                  "key": "price",
+                  "value": null,
+                  "type": "text",
+                  "uuid": "0857c743-3dd0-426c-b070-d781b3ed5e96"
+                },
+                {
+                  "key": "startindex",
+                  "value": null,
+                  "type": "text",
+                  "uuid": "9577900f-9d61-48c2-b31d-3c625a36f679"
+                },
+                {
+                  "key": "count",
+                  "value": null,
+                  "type": "text",
+                  "uuid": "3f9def3d-32dc-4d06-801a-9aece0da5116"
+                },
+                {
+                  "key": "orderby",
+                  "value": null,
+                  "type": "text",
+                  "uuid": "cc5fb60a-7502-4b64-afaa-ad3803f22a57"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show_U_ItemByItemID",
+          "id": "e0f205ff-03ee-4379-bb74-a5a023c1c81e",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/user/itemByItemID?itemid&category",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "itemByItemID"
+              ],
+              "query": [
+                {
+                  "key": "itemid",
+                  "value": null,
+                  "uuid": "d0c61554-26ad-4618-b5b3-e3ffc6d9ed7d"
+                },
+                {
+                  "key": "category",
+                  "value": null,
+                  "type": "text",
+                  "uuid": "0e8d0d85-d5e5-4104-8714-5de2e70f9014"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show_S_CreateItem",
+          "id": "8d985b95-fcf1-4c88-8f1b-ac7d7837fbbb",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "c1109bf1-c3d4-4c17-9c0c-2059cca0ec7c"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"sellerID\": \"\",\r\n\t\"name\": \"Dildo\",\r\n\t\"description\": \"Big dildo, nice cock, pussy penetration\",\r\n\t\"price\": 1,\r\n\t\"category\": \"18+\",\r\n\t\"status\": \"available\",\r\n\t\"quantity\": 123\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/staff/createItem",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "staff",
+                "createItem"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show_S_DeleteItem",
+          "id": "1e635c1b-2da9-46d3-977a-4874a6874d92",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "8461a6e6-1fca-457b-86da-d1b0d680166d"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"itemID\": \"\",\r\n    \"category\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/staff/deleteItem",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "staff",
+                "deleteItem"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "94f08988-3707-4734-a6e5-320fffecf38c",
+      "auth": {
+        "type": "jwt",
+        "jwt": [
+          {
+            "key": "payload",
+            "value": "{\r\n  \"getterID\": \"019bb6e8-8b87-7786-9fc0-84ab1dd58342\",\r\n  \"exp\": 1768303852\r\n}",
+            "type": "string"
+          },
+          {
+            "key": "secret",
+            "value": "{{JWTsecret}}",
+            "type": "string"
+          },
+          {
+            "key": "algorithm",
+            "value": "HS256",
+            "type": "string"
+          },
+          {
+            "key": "isSecretBase64Encoded",
+            "value": false,
+            "type": "boolean"
+          },
+          {
+            "key": "addTokenTo",
+            "value": "header",
+            "type": "string"
+          },
+          {
+            "key": "headerPrefix",
+            "value": "Bearer",
+            "type": "string"
+          },
+          {
+            "key": "queryParamKey",
+            "value": "token",
+            "type": "string"
+          },
+          {
+            "key": "header",
+            "value": "{}",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "c233f10b-4e40-4102-8dbf-53f05cb130e1",
+      "key": "baseURL",
+      "value": ""
+    },
+    {
+      "id": "05362d43-1b43-41bb-b249-ff5fd6ec0f11",
+      "key": "PASSPHRASE",
+      "value": ""
+    }
+  ]
+}

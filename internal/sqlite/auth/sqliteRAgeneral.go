@@ -14,6 +14,7 @@ var (
 	ErrNoUser            = errors.New("user does not exists")
 	ErrIncorrectPasswd   = errors.New("incorrect password")
 	ErrIncorrectToken    = errors.New("incorrect token")
+	ErrTokenExpired      = errors.New("token expired")
 )
 
 type SQLiteRepo struct {
@@ -46,7 +47,8 @@ func (r *SQLiteRepo) CreateTables(ctx context.Context) error {
 		userID TEXT PRIMARY KEY,
 		login TEXT NOT NULL UNIQUE,
 		passwdHash TEXT NOT NULL,
-		token TEXT NOT NULL
+		RTtoken TEXT NOT NULL,
+		RTdie INTEGER NOT NULL
 		);`)
 		if err != nil {
 			return err
@@ -58,7 +60,8 @@ func (r *SQLiteRepo) CreateTables(ctx context.Context) error {
 		userID TEXT PRIMARY KEY,
 		login TEXT NOT NULL UNIQUE,
 		passwdHash TEXT NOT NULL,
-		token TEXT
+		RTtoken TEXT NOT NULL,
+		RTdie INTEGER NOT NULL
 		);`)
 		if err != nil {
 			return err

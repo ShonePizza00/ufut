@@ -2,17 +2,19 @@ package auth
 
 import (
 	"context"
-	structsUFUT "ufut/lib"
+	structsUFUT "ufut/lib/structs"
 )
 
 type Repository interface {
-	CreateNewUser(ctx context.Context, user *structsUFUT.UserGeneral) error
-	UpdateUserPasswd(ctx context.Context, data *structsUFUT.UserUpdatePasswdHash) error
-	LoginUser(ctx context.Context, user *structsUFUT.UserGeneral) error
-	VerifyTokenUser(ctx context.Context, user *structsUFUT.UserGeneral) (string, error)
+	CreateNewUser(ctx context.Context, user *structsUFUT.UserGeneral, tr *structsUFUT.TokenResponse) error
+	UpdateUserPasswd(ctx context.Context, data *structsUFUT.UserUpdatePasswdHash, tr *structsUFUT.TokenResponse) (string, error)
+	LoginUser(ctx context.Context, user *structsUFUT.UserGeneral, tr *structsUFUT.TokenResponse) error
+	// VerifyTokenUser(ctx context.Context, user *structsUFUT.UserGeneral) (string, error)
+	UpdateJWTUser(ctx context.Context, data *structsUFUT.JWTUpdate) (string, error)
 
-	CreateNewStaff(ctx context.Context, staff *structsUFUT.UserGeneral) error
-	UpdateStaffPasswd(ctx context.Context, data *structsUFUT.UserUpdatePasswdHash) error
-	LoginStaff(ctx context.Context, staff *structsUFUT.UserGeneral) error
-	VerifyTokenStaff(ctx context.Context, staff *structsUFUT.UserGeneral) (string, error)
+	CreateNewStaff(ctx context.Context, staff *structsUFUT.UserGeneral, tr *structsUFUT.TokenResponse) error
+	UpdateStaffPasswd(ctx context.Context, data *structsUFUT.UserUpdatePasswdHash, tr *structsUFUT.TokenResponse) (string, error)
+	LoginStaff(ctx context.Context, staff *structsUFUT.UserGeneral, tr *structsUFUT.TokenResponse) error
+	// VerifyTokenStaff(ctx context.Context, staff *structsUFUT.UserGeneral) (string, error)
+	UpdateJWTStaff(ctx context.Context, data *structsUFUT.JWTUpdate) (string, error)
 }

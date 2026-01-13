@@ -3,7 +3,7 @@ package sqliteRepoMarketplace
 import (
 	"context"
 	"database/sql"
-	structsUFUT "ufut/lib"
+	structsUFUT "ufut/lib/structs"
 )
 
 type SQLiteRepo struct {
@@ -48,9 +48,9 @@ Creates necessary tables if they do not exist
 */
 func (r *SQLiteRepo) CreateTables(ctx context.Context) error {
 	{
-		_, err := r.DB.ExecContext(ctx, `
-			CREATE TABLE IF NOT EXISTS orders (
-			orderID INTEGER NOT NULL,
+		_, err := r.DB.ExecContext(ctx,
+			`CREATE TABLE IF NOT EXISTS orders (
+			orderID TEXT NOT NULL,
 			itemID TEXT NOT NULL,
 			quantity INTEGER,
 			PRIMARY KEY(orderID, itemID)
@@ -60,8 +60,8 @@ func (r *SQLiteRepo) CreateTables(ctx context.Context) error {
 		}
 	}
 	{
-		_, err := r.DB.ExecContext(ctx, `
-			CREATE TABLE IF NOT EXISTS shopping_cart (
+		_, err := r.DB.ExecContext(ctx,
+			`CREATE TABLE IF NOT EXISTS shopping_cart (
 			userID TEXT NOT NULL,
 			itemID TEXT NOT NULL,
 			quantity INTEGER DEFAULT 1,
@@ -72,9 +72,9 @@ func (r *SQLiteRepo) CreateTables(ctx context.Context) error {
 		}
 	}
 	{
-		_, err := r.DB.ExecContext(ctx, `
-			CREATE TABLE IF NOT EXISTS usersOrders (
-			orderID INTEGER NOT NULL ,
+		_, err := r.DB.ExecContext(ctx,
+			`CREATE TABLE IF NOT EXISTS usersOrders (
+			orderID INTEGER NOT NULL,
 			userID TEXT NOT NULL,
 			status TEXT NOT NULL,
 			createdAt DATETIME NOT NULL,

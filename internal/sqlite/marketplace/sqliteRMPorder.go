@@ -4,7 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"errors"
-	structsUFUT "ufut/lib"
+	"strconv"
+	structsUFUT "ufut/lib/structs"
 )
 
 var (
@@ -15,7 +16,7 @@ var (
 userID - uuid (16 bytes)
 Takes data from shopping cart, places order and clears user's shopping cart
 */
-func (r *SQLiteRepo) PlaceOrder(ctx context.Context, userID string) error {
+func (r *SQLiteRepo) PlaceOrder(ctx context.Context, userID string, availability []bool) error {
 	q_row_res := r.DB.QueryRowContext(ctx,
 		`SELECT MAX(orderID)
 		FROM usersOrders
@@ -41,17 +42,23 @@ func (r *SQLiteRepo) PlaceOrder(ctx context.Context, userID string) error {
 			return err
 		}
 	}
+	i := -1
 	for q_res.Next() {
+		i++
+		if !availability[i] {
+			continue
+		}
 		var (
 			ItemID   string
 			Quantity string
 		)
 		q_res.Scan(&ItemID, &Quantity)
+		orderID := userID + strconv.Itoa(maxID)
 		_, errEx := r.DB.ExecContext(ctx,
 			`INSERT INTO orders
 			(orderID, itemID, quantity)
 			VALUES (?,?,?)`,
-			maxID, ItemID, Quantity)
+			orderID, ItemID, Quantity)
 		if errEx != nil {
 			return errEx
 		}
@@ -145,4 +152,19 @@ func (r *SQLiteRepo) UserOrders(ctx context.Context, req *structsUFUT.OrderReque
 		ret.Status = append(ret.Status, status)
 	}
 	return &ret, nil
+}
+
+func (r *SQLiteRepo) ItemsIDsByOrderID(ctx context.Context, req *structsUFUT.OrderRequestRMP) ([]string, error) {
+	res, err := r.DB.QueryContext(ctx,
+		`SELECT itemID FROM orders WHERE orderID=?`, strconv.Itoa(req.OrderID)+req.UserID)
+	if err != nil {
+		return nil, err
+	}
+	items := make([]string, 0, 10)
+	for res.Next() {
+		var itemID string
+		res.Scan(&itemID)
+		items = append(items, itemID)
+	}
+	return items, nil
 }

@@ -2,7 +2,7 @@ package sqliteRepoMarketplace
 
 import (
 	"context"
-	structsUFUT "ufut/lib"
+	structsUFUT "ufut/lib/structs"
 )
 
 /*
