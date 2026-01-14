@@ -75,39 +75,6 @@ func (r *SQLiteRepo) LoginUser(ctx context.Context, user *structsUFUT.UserGenera
 	return err
 }
 
-// /*
-// user:
-
-// 	Login		- uuid (16 bytes)
-// 	PasswdHash	- sha256(password+hash_salt) (16 bytes)
-// 	Token		- uuid+uuid (32 bytes)
-
-// Updates user's token in the database
-// */
-// func (r *SQLiteRepo) updateTokenUser(ctx context.Context, user *structsUFUT.UserGeneral) error {
-// 	_, err := r.DB.ExecContext(ctx,
-// 		`UPDATE users_auth SET token=? WHERE login=? AND passwdHash=?`, user.Token, user.Login, user.PasswdHash)
-// 	return err
-// }
-
-// /*
-// user:
-
-// 	Login		- uuid (16 bytes)
-// 	Token		- uuid+uuid (32 bytes)
-
-// Verifies user's token in the database
-// */
-// func (r *SQLiteRepo) VerifyTokenUser(ctx context.Context, user *structsUFUT.UserGeneral) (string, error) {
-// 	q_res := r.DB.QueryRowContext(ctx, `SELECT userID FROM users_auth WHERE token=?`, user.Token)
-// 	var userID string
-// 	err := q_res.Scan(&userID)
-// 	if err != nil {
-// 		return "", ErrNoUser
-// 	}
-// 	return userID, nil
-// }
-
 func (r *SQLiteRepo) UpdateJWTUser(ctx context.Context, data *structsUFUT.JWTUpdate) (string, error) {
 	var (
 		userID    string

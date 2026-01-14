@@ -75,39 +75,6 @@ func (r *SQLiteRepo) LoginStaff(ctx context.Context, staff *structsUFUT.UserGene
 	return err
 }
 
-// /*
-// user:
-
-// 	Login		- uuid (16 bytes)
-// 	PasswdHash	- sha256(password+hash_salt) (16 bytes)
-// 	Token		- uuid+uuid (32 bytes)
-
-// Updates user's token in the database
-// */
-// func (r *SQLiteRepo) updateTokenStaff(ctx context.Context, staff *structsUFUT.UserGeneral) error {
-// 	_, err := r.DB.ExecContext(ctx,
-// 		`UPDATE staff_auth SET token=? WHERE login=? AND passwdHash=?`, staff.Token, staff.Login, staff.PasswdHash)
-// 	return err
-// }
-
-// /*
-// user:
-
-// 	Login		- uuid (16 bytes)
-// 	Token		- uuid+uuid (32 bytes)
-
-// Verifies user's token in the database
-// */
-// func (r *SQLiteRepo) VerifyTokenStaff(ctx context.Context, staff *structsUFUT.UserGeneral) (string, error) {
-// 	q_res := r.DB.QueryRowContext(ctx, `SELECT userID FROM staff_auth WHERE token=?`, staff.Token)
-// 	var userID string
-// 	err := q_res.Scan(&userID)
-// 	if err != nil {
-// 		return "", ErrNoUser
-// 	}
-// 	return userID, nil
-// }
-
 func (r *SQLiteRepo) UpdateJWTStaff(ctx context.Context, data *structsUFUT.JWTUpdate) (string, error) {
 	var (
 		userID    string

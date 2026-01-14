@@ -162,18 +162,6 @@ func (s *Service) UpdateStaffPasswd(ctx context.Context, req *structsUFUT.UserUp
 	return &tr, nil
 }
 
-// // Deprecated: unnecessary
-// func (s *Service) VerifyTokenUser(ctx context.Context, token string) (string, error) {
-// 	user := &structsUFUT.UserGeneral{Token: token}
-// 	return s.Repo.VerifyTokenUser(ctx, user)
-// }
-
-// // Deprecated: unnecessary
-// func (s *Service) VerifyTokenStaff(ctx context.Context, token string) (string, error) {
-// 	staff := &structsUFUT.UserGeneral{Token: token}
-// 	return s.Repo.VerifyTokenStaff(ctx, staff)
-// }
-
 func (s *Service) UpdateJWTUser(ctx context.Context, rt string) (*structsUFUT.TokenResponse, error) {
 	data := structsUFUT.JWTUpdate{
 		OldRT:      rt,

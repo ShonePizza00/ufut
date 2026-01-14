@@ -15,15 +15,21 @@ func NewHandler(srvc *Service) *Handler {
 }
 
 func RegisterRoutes(mux *http.ServeMux, h *Handler) {
-	mux.HandleFunc("POST /api/user/authUser", h.AuthUser)
-	mux.HandleFunc("POST /api/user/registerUser", h.RegisterUser)
-	mux.HandleFunc("POST /api/user/updateUserPasswd", h.UpdateUserPasswd)
-	mux.HandleFunc("POST /api/user/updateJWTUser", h.UpdateJWTUser)
+	handledFuncs := map[string]http.HandlerFunc{
+		"POST /api/user/authUser":         h.AuthUser,
+		"POST /api/user/registerUser":     h.RegisterUser,
+		"POST /api/user/updateUserPasswd": h.UpdateUserPasswd,
+		"POST /api/user/updateJWTUser":    h.UpdateJWTUser,
 
-	mux.HandleFunc("POST /api/staff/authStaff", h.AuthStaff)
-	mux.HandleFunc("POST /api/staff/registerStaff", h.RegisterStaff)
-	mux.HandleFunc("POST /api/staff/updateStaffPasswd", h.UpdateStaffPasswd)
-	mux.HandleFunc("POST /api/user/updateJWTStaff", h.UpdateJWTStaff)
+		"POST /api/staff/authStaff":         h.AuthStaff,
+		"POST /api/staff/registerStaff":     h.RegisterStaff,
+		"POST /api/staff/updateStaffPasswd": h.UpdateStaffPasswd,
+		"POST /api/user/updateJWTStaff":     h.UpdateJWTStaff,
+	}
+
+	for key, val := range handledFuncs {
+		mux.HandleFunc(key, val)
+	}
 }
 
 /*
@@ -207,73 +213,6 @@ func (h *Handler) UpdateStaffPasswd(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	json.NewEncoder(w).Encode(resp)
 }
-
-// /*
-// Deprecated: unnecessary
-
-// change to NewJWTbyRT
-// <FEATURE>
-// add header instead of the passphrase in query
-
-// Query args:
-
-// 	token=string
-// 	passphrase=string
-// */
-// func (h *Handler) VerifyTokenUser(w http.ResponseWriter, r *http.Request) {
-// 	q_vals := r.URL.Query()
-// 	token := q_vals.Get("token")
-// 	passphrase := q_vals.Get("passphrase")
-// 	if passphrase != structsUFUT.PASSPHRASE {
-// 		http.Error(w, "Access Denied!", http.StatusForbidden)
-// 		return
-// 	}
-// 	if token == "" {
-// 		http.Error(w, "missing authorization token", http.StatusBadRequest)
-// 		return
-// 	}
-// 	valid, err := h.service.VerifyTokenUser(r.Context(), token)
-// 	if err != nil {
-// 		http.Error(w, "token verification failed: "+err.Error(), http.StatusUnauthorized)
-// 		return
-// 	}
-
-// 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
-// 	json.NewEncoder(w).Encode(map[string]string{"userID": valid})
-// }
-
-// /*
-// Deprecated: unnecessary
-
-// change to NewJWTbyRT
-// <FEATURE>
-// add header instead of the passphrase in query
-
-// Query args:
-
-// 	token=string
-// 	passphrase=string
-// */
-// func (h *Handler) VerifyTokenStaff(w http.ResponseWriter, r *http.Request) {
-// 	q_vals := r.URL.Query()
-// 	token := q_vals.Get("token")
-// 	passphrase := q_vals.Get("passphrase")
-// 	if passphrase != structsUFUT.PASSPHRASE {
-// 		http.Error(w, "Access Denied!", http.StatusForbidden)
-// 		return
-// 	}
-// 	if token == "" {
-// 		http.Error(w, "missing authorization token", http.StatusBadRequest)
-// 		return
-// 	}
-// 	valid, err := h.service.VerifyTokenStaff(r.Context(), token)
-// 	if err != nil {
-// 		http.Error(w, "token verification failed: "+err.Error(), http.StatusUnauthorized)
-// 		return
-// 	}
-// 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
-// 	json.NewEncoder(w).Encode(map[string]string{"staffID": valid})
-// }
 
 /*
 JSON args:

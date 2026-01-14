@@ -34,36 +34,7 @@ func RegisterRoutes(mux *http.ServeMux, h *Handler) {
 		mux.HandleFunc(key, funcsUFUT.AuthMiddleware(val))
 	}
 
-	// mux.HandleFunc("GET /api/user/categories", h.Categories)
-	// mux.HandleFunc("GET /api/user/itemsByParams", h.ItemsByParams)
-	// mux.HandleFunc("GET /api/user/itemByItemID", h.ItemByItemID)
-	// mux.HandleFunc("POST /api/staff/createItem", h.CreateItem)
-	// mux.HandleFunc("POST /api/staff/deleteItem", h.DeleteItem)
 }
-
-// func staffidByToken(token string) (string, error) {
-// 	req, err := http.NewRequest("GET", "/api/verifyTokenStaff", nil)
-// 	if err != nil {
-// 		return "", err
-// 	}
-// 	query := req.URL.Query()
-// 	query.Set("token", token)
-// 	query.Set("passphrase", structsUFUT.PASSPHRASE)
-// 	req.URL.RawQuery = query.Encode()
-// 	clt := http.Client{}
-// 	resp, err := clt.Do(req)
-// 	if err != nil {
-// 		return "", err
-// 	}
-// 	defer resp.Body.Close()
-// 	var id_resp struct {
-// 		StaffID string `json:"staffID"`
-// 	}
-// 	if err := json.NewDecoder(resp.Body).Decode(&id_resp); err != nil {
-// 		return "", err
-// 	}
-// 	return id_resp.StaffID, nil
-// }
 
 /*
 Query args:
@@ -179,7 +150,6 @@ func (h *Handler) CreateItem(w http.ResponseWriter, r *http.Request) {
 	item.ItemID = uid.String()
 	item.SellerID = funcsUFUT.GetterIDFromContext(r.Context())
 	if err := h.service.CreateItem(r.Context(), &item); err != nil {
-		// http.Error(w, "internal server error", http.StatusInternalServerError)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
