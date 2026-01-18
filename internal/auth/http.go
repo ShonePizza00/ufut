@@ -115,7 +115,7 @@ func (h *Handler) RegisterUser(w http.ResponseWriter, r *http.Request) {
 	}
 	resp, err := h.service.RegisterUser(r.Context(), &req)
 	if err != nil {
-		http.Error(w, "registration failed: "+err.Error(), http.StatusInternalServerError)
+		http.Error(w, "registration failed: "+err.Error(), http.StatusUnauthorized)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
@@ -145,7 +145,7 @@ func (h *Handler) RegisterStaff(w http.ResponseWriter, r *http.Request) {
 	}
 	resp, err := h.service.RegisterStaff(r.Context(), &req)
 	if err != nil {
-		http.Error(w, "registration failed: "+err.Error(), http.StatusInternalServerError)
+		http.Error(w, "registration failed: "+err.Error(), http.StatusUnauthorized)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
@@ -176,7 +176,7 @@ func (h *Handler) UpdateUserPasswd(w http.ResponseWriter, r *http.Request) {
 	}
 	resp, err := h.service.UpdateUserPasswd(r.Context(), &req)
 	if err != nil {
-		http.Error(w, "password update failed: "+err.Error(), http.StatusInternalServerError)
+		http.Error(w, "password update failed: "+err.Error(), http.StatusUnauthorized)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
@@ -207,7 +207,7 @@ func (h *Handler) UpdateStaffPasswd(w http.ResponseWriter, r *http.Request) {
 	}
 	resp, err := h.service.UpdateStaffPasswd(r.Context(), &req)
 	if err != nil {
-		http.Error(w, "password update failed: "+err.Error(), http.StatusInternalServerError)
+		http.Error(w, "password update failed: "+err.Error(), http.StatusUnauthorized)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")

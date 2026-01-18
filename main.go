@@ -36,14 +36,17 @@ func main() {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
+	defer db_Auth.Close()
 	db_MP, err := sql.Open("sqlite3", "data/marketplace.db")
 	if err != nil {
 		fmt.Println(err.Error())
 	}
+	defer db_MP.Close()
 	db_SC, err := sql.Open("sqlite3", "data/showcase.db")
 	if err != nil {
 		fmt.Println(err.Error())
 	}
+	defer db_SC.Close()
 	repo_Auth := sqliteRepoAUTH.NewSQLiteRepo(db_Auth)
 	repo_MP := sqliteRepoMarketplace.NewSQLiteRepo(db_MP)
 	repo_SC := sqliteRepoShowcase.NewSQLiteRepo(db_SC)
