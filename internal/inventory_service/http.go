@@ -15,6 +15,7 @@ func RegisterRoutes(mux *http.ServeMux, h *Handler) {
 		// "POST /api/items/reserve":  h.ReserveItem,
 		// "POST /api/items/cancel":   h.CancelItemReservation,
 		"POST /api/items/increase": h.IncreaseQuantity,
+		"POST /api/items/decrease": h.DecreaseQuantity,
 		"GET /api/items/quantity":  h.ItemQuantity,
 	}
 
@@ -32,6 +33,10 @@ func RegisterRoutes(mux *http.ServeMux, h *Handler) {
 // }
 
 func (h *Handler) IncreaseQuantity(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func (h *Handler) DecreaseQuantity(w http.ResponseWriter, r *http.Request) {
 
 }
 

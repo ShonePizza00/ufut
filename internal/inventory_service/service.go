@@ -64,13 +64,13 @@ func (s *Service) handleOrdersMsg(ctx context.Context, msg kafka.Message) error 
 
 	switch action {
 	case "reserve":
-		availability, err := s.Repo.ReserveItem(ctx, list.ItemsID, list.Quantities)
+		availability, err := s.Repo.ReserveItems(ctx, list.ItemsID, list.Quantities)
 		if err != nil {
 			return err
 		}
 		itemsAvailability = availability
 	case "cancelReservation":
-		err := s.Repo.CancelItemReservation(ctx, list.ItemsID)
+		err := s.Repo.CancelItemReservation(ctx, list.ItemsID, list.Quantities)
 		if err != nil {
 			return err
 		}

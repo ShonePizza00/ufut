@@ -31,7 +31,7 @@ Creates necessary tables if they do not exist
 func (r *SQLiteRepo) CreateTables(ctx context.Context) error {
 	{
 		_, err := r.DB.ExecContext(ctx, `
-		CREATE TABLE IF NOT EXISTS users_auth (
+		CREATE TABLE IF NOT EXISTS itemsQuantities (
 		itemID TEXT PRIMARY KEY,
 		quantity INT
 		);`)
