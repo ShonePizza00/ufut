@@ -51,7 +51,7 @@ func (h *Handler) AuthUser(w http.ResponseWriter, r *http.Request) {
 	}
 	resp, err := h.service.AuthUser(r.Context(), &req)
 	if err != nil {
-		http.Error(w, "authentication failed: "+err.Error(), http.StatusUnauthorized)
+		http.Error(w, "authentication failed: "+err.Error(), http.StatusBadRequest)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
@@ -77,7 +77,7 @@ func (h *Handler) AuthStaff(w http.ResponseWriter, r *http.Request) {
 	}
 	resp, err := h.service.AuthStaff(r.Context(), &req)
 	if err != nil {
-		http.Error(w, "authentication failed: "+err.Error(), http.StatusUnauthorized)
+		http.Error(w, "authentication failed: "+err.Error(), http.StatusBadRequest)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
@@ -103,7 +103,7 @@ func (h *Handler) RegisterUser(w http.ResponseWriter, r *http.Request) {
 	}
 	resp, err := h.service.RegisterUser(r.Context(), &req)
 	if err != nil {
-		http.Error(w, "registration failed: "+err.Error(), http.StatusUnauthorized)
+		http.Error(w, "registration failed: "+err.Error(), http.StatusBadRequest)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
@@ -129,7 +129,7 @@ func (h *Handler) RegisterStaff(w http.ResponseWriter, r *http.Request) {
 	}
 	resp, err := h.service.RegisterStaff(r.Context(), &req)
 	if err != nil {
-		http.Error(w, "registration failed: "+err.Error(), http.StatusUnauthorized)
+		http.Error(w, "registration failed: "+err.Error(), http.StatusBadRequest)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
@@ -156,7 +156,7 @@ func (h *Handler) UpdateUserPasswd(w http.ResponseWriter, r *http.Request) {
 	}
 	resp, err := h.service.UpdateUserPasswd(r.Context(), &req)
 	if err != nil {
-		http.Error(w, "password update failed: "+err.Error(), http.StatusUnauthorized)
+		http.Error(w, "password update failed: "+err.Error(), http.StatusBadRequest)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
@@ -183,7 +183,7 @@ func (h *Handler) UpdateStaffPasswd(w http.ResponseWriter, r *http.Request) {
 	}
 	resp, err := h.service.UpdateStaffPasswd(r.Context(), &req)
 	if err != nil {
-		http.Error(w, "password update failed: "+err.Error(), http.StatusUnauthorized)
+		http.Error(w, "password update failed: "+err.Error(), http.StatusBadRequest)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")

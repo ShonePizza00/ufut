@@ -57,7 +57,7 @@ func CreateTestDataAuth() []testAuth {
 			want: wantS{
 				errV: true,
 				RT:   "",
-				code: 401,
+				code: 400,
 			},
 		},
 		{
@@ -179,7 +179,7 @@ func TestHandler_AuthUser(t *testing.T) {
 	for _, tt := range tests {
 		body, _ := json.Marshal(tt.value)
 		t.Run(tt.name+"_reg", func(t *testing.T) {
-			r_reg := httptest.NewRequest(http.MethodPost, "/api/user/registerUser", bytes.NewReader(body))
+			r_reg := httptest.NewRequest(http.MethodPost, "/api/user/reg", bytes.NewReader(body))
 			w_reg := httptest.NewRecorder()
 			h.RegisterUser(w_reg, r_reg)
 			res := w_reg.Result()
@@ -189,7 +189,7 @@ func TestHandler_AuthUser(t *testing.T) {
 			tt.want.RT = resJSON.RT
 		})
 		t.Run(tt.name+"_auth", func(t *testing.T) {
-			r_auth := httptest.NewRequest(http.MethodPost, "/api/user/authUser", bytes.NewReader(body))
+			r_auth := httptest.NewRequest(http.MethodPost, "/api/user", bytes.NewReader(body))
 			w_auth := httptest.NewRecorder()
 			h.AuthUser(w_auth, r_auth)
 
@@ -212,7 +212,7 @@ func TestHandler_AuthStaff(t *testing.T) {
 	for _, tt := range tests {
 		body, _ := json.Marshal(tt.value)
 		t.Run(tt.name+"_reg", func(t *testing.T) {
-			r_reg := httptest.NewRequest(http.MethodPost, "/api/staff/registerStaff", bytes.NewReader(body))
+			r_reg := httptest.NewRequest(http.MethodPost, "/api/staff/reg", bytes.NewReader(body))
 			w_reg := httptest.NewRecorder()
 			h.RegisterUser(w_reg, r_reg)
 			res := w_reg.Result()
@@ -222,7 +222,7 @@ func TestHandler_AuthStaff(t *testing.T) {
 			tt.want.RT = resJSON.RT
 		})
 		t.Run(tt.name+"_auth", func(t *testing.T) {
-			r_auth := httptest.NewRequest(http.MethodPost, "/api/staff/authStaff", bytes.NewReader(body))
+			r_auth := httptest.NewRequest(http.MethodPost, "/api/staff", bytes.NewReader(body))
 			w_auth := httptest.NewRecorder()
 			h.AuthUser(w_auth, r_auth)
 
@@ -245,7 +245,7 @@ func TestHandler_RegisterUser(t *testing.T) {
 	for _, tt := range tests {
 		body, _ := json.Marshal(tt.value)
 		t.Run(tt.name+"_reg", func(t *testing.T) {
-			r_reg := httptest.NewRequest(http.MethodPost, "/api/user/registerUser", bytes.NewReader(body))
+			r_reg := httptest.NewRequest(http.MethodPost, "/api/user/reg", bytes.NewReader(body))
 			w_reg := httptest.NewRecorder()
 			h.RegisterUser(w_reg, r_reg)
 			res := w_reg.Result()
@@ -267,7 +267,7 @@ func TestHandler_RegisterStaff(t *testing.T) {
 	for _, tt := range tests {
 		body, _ := json.Marshal(tt.value)
 		t.Run(tt.name+"_reg", func(t *testing.T) {
-			r_reg := httptest.NewRequest(http.MethodPost, "/api/staff/registerStaff", bytes.NewReader(body))
+			r_reg := httptest.NewRequest(http.MethodPost, "/api/staff/reg", bytes.NewReader(body))
 			w_reg := httptest.NewRecorder()
 			h.RegisterUser(w_reg, r_reg)
 			res := w_reg.Result()
