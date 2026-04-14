@@ -4,6 +4,7 @@ import (
 	"context"
 	"crypto/rand"
 	"net/http"
+	"os"
 	"strings"
 	"time"
 
@@ -60,7 +61,7 @@ func AuthMiddleware(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		authHeader := r.Header.Get("Authorization")
 		if authHeader == "" {
-			http.Error(w, "Invalid token1", http.StatusUnauthorized)
+			http.Error(w, "Invalid token", http.StatusUnauthorized)
 			return
 		}
 
@@ -69,16 +70,23 @@ func AuthMiddleware(next http.HandlerFunc) http.HandlerFunc {
 			return JWTkey, nil
 		}, jwt.WithValidMethods([]string{jwt.SigningMethodHS256.Alg()}))
 		if err != nil || !token.Valid {
-			http.Error(w, "Invalid token2", http.StatusUnauthorized)
+			http.Error(w, "Invalid token", http.StatusUnauthorized)
 			return
 		}
 		claims, ok := token.Claims.(*JWTCustomClaims)
 		if !ok {
-			http.Error(w, "Invalid token3", http.StatusUnauthorized)
+			http.Error(w, "Invalid token", http.StatusUnauthorized)
 			return
 		}
 		ctx := context.WithValue(r.Context(), "getterID", claims.GetterID)
 		r = r.WithContext(ctx)
 		next(w, r)
 	}
+}
+
+func GetEnvDefault(param, default_value string) string {
+	if v, ok := os.LookupEnv(param); ok {
+		return v
+	}
+	return default_value
 }

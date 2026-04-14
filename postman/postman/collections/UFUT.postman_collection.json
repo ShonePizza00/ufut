@@ -30,14 +30,13 @@
               }
             },
             "url": {
-              "raw": "{{baseURL}}/api/user/authUser",
+              "raw": "{{baseURL}}/api/user",
               "host": [
                 "{{baseURL}}"
               ],
               "path": [
                 "api",
-                "user",
-                "authUser"
+                "user"
               ]
             }
           },
@@ -65,14 +64,13 @@
               }
             },
             "url": {
-              "raw": "{{baseURL}}/api/staff/authStaff",
+              "raw": "{{baseURL}}/api/staff",
               "host": [
                 "{{baseURL}}"
               ],
               "path": [
                 "api",
-                "staff",
-                "authStaff"
+                "staff"
               ]
             }
           },
@@ -100,14 +98,14 @@
               }
             },
             "url": {
-              "raw": "{{baseURL}}/api/user/registerUser",
+              "raw": "{{baseURL}}/api/user/reg",
               "host": [
                 "{{baseURL}}"
               ],
               "path": [
                 "api",
                 "user",
-                "registerUser"
+                "reg"
               ]
             }
           },
@@ -135,14 +133,14 @@
               }
             },
             "url": {
-              "raw": "{{baseURL}}/api/staff/registerStaff",
+              "raw": "{{baseURL}}/api/staff/reg",
               "host": [
                 "{{baseURL}}"
               ],
               "path": [
                 "api",
                 "staff",
-                "registerStaff"
+                "reg"
               ]
             }
           },
@@ -165,14 +163,14 @@
               "raw": "{\r\n    \"login\": \"abc\",\r\n    \"password\": \"abc\",\r\n    \"newPassword\": \"abcNew\"\r\n}"
             },
             "url": {
-              "raw": "{{baseURL}}/api/user/updateUserPasswd",
+              "raw": "{{baseURL}}/api/user/update",
               "host": [
                 "{{baseURL}}"
               ],
               "path": [
                 "api",
                 "user",
-                "updateUserPasswd"
+                "update"
               ]
             }
           },
@@ -200,192 +198,14 @@
               }
             },
             "url": {
-              "raw": "{{baseURL}}/api/staff/updateStaffPasswd",
+              "raw": "{{baseURL}}/api/staff/update",
               "host": [
                 "{{baseURL}}"
               ],
               "path": [
                 "api",
                 "staff",
-                "updateStaffPasswd"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Auth_VerifyTokenUser",
-          "id": "c3d7427f-8ad9-4f59-a7e1-67323195dbf2",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseURL}}/api/user/verifyTokenUser?token=bb60ff68-2ad6-42ff-a706-8ad9a0b994e725748345-4761-4759-bb20-fdfd7915783e&passphrase={{PASSPHRASE}}",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "api",
-                "user",
-                "verifyTokenUser"
-              ],
-              "query": [
-                {
-                  "key": "token",
-                  "value": "bb60ff68-2ad6-42ff-a706-8ad9a0b994e725748345-4761-4759-bb20-fdfd7915783e"
-                },
-                {
-                  "key": "passphrase",
-                  "value": "{{PASSPHRASE}}"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Auth_VerifyTokenStaff",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "0aeee5e7-5041-4473-a21b-8a46f304cf4d",
-                "exec": [
-                  "// Visualization Script",
-                  "// Visualization Script",
-                  "var template = `",
-                  "<style>",
-                  "    .container {",
-                  "        font-family: Arial, sans-serif;",
-                  "        padding: 20px;",
-                  "        max-width: 600px;",
-                  "        margin: 0 auto;",
-                  "    }",
-                  "    .card {",
-                  "        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);",
-                  "        border-radius: 12px;",
-                  "        padding: 24px;",
-                  "        color: white;",
-                  "        margin-bottom: 24px;",
-                  "        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);",
-                  "    }",
-                  "    .card-label {",
-                  "        font-size: 14px;",
-                  "        opacity: 0.9;",
-                  "        margin-bottom: 8px;",
-                  "        text-transform: uppercase;",
-                  "        letter-spacing: 1px;",
-                  "    }",
-                  "    .card-value {",
-                  "        font-size: 14px;",
-                  "        font-weight: bold;",
-                  "        word-break: break-all;",
-                  "    }",
-                  "    .chart-container {",
-                  "        background: white;",
-                  "        border-radius: 12px;",
-                  "        padding: 20px;",
-                  "        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);",
-                  "    }",
-                  "    .chart-title {",
-                  "        text-align: center;",
-                  "        color: #333;",
-                  "        margin-bottom: 16px;",
-                  "        font-size: 16px;",
-                  "    }",
-                  "</style>",
-                  "",
-                  "<div class=\"container\">",
-                  "    <div class=\"card\">",
-                  "        <div class=\"card-label\">User ID</div>",
-                  "        <div class=\"card-value\">{{userID}}</div>",
-                  "    </div>",
-                  "    ",
-                  "    <div class=\"chart-container\">",
-                  "        <div class=\"chart-title\">Response Status</div>",
-                  "        <canvas id=\"statusChart\" height=\"200\"></canvas>",
-                  "    </div>",
-                  "</div>",
-                  "",
-                  "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script>",
-                  "<script>",
-                  "    var ctx = document.getElementById(\"statusChart\");",
-                  "    var statusChart = new Chart(ctx, {",
-                  "        type: \"pie\",",
-                  "        data: {",
-                  "            labels: [\"userID Present\"],",
-                  "            datasets: [{",
-                  "                data: [100],",
-                  "                backgroundColor: [\"#667eea\"],",
-                  "                borderColor: [\"#ffffff\"],",
-                  "                borderWidth: 2",
-                  "            }]",
-                  "        },",
-                  "        options: {",
-                  "            legend: {",
-                  "                display: true,",
-                  "                position: \"bottom\"",
-                  "            },",
-                  "            title: {",
-                  "                display: false",
-                  "            }",
-                  "        }",
-                  "    });",
-                  "",
-                  "    pm.getData(function (err, value) {",
-                  "        if (value.userIDPresent) {",
-                  "            statusChart.data.labels = [\"userID Present\"];",
-                  "            statusChart.data.datasets[0].data = [100];",
-                  "            statusChart.data.datasets[0].backgroundColor = [\"#667eea\"];",
-                  "        } else {",
-                  "            statusChart.data.labels = [\"userID Missing\"];",
-                  "            statusChart.data.datasets[0].data = [100];",
-                  "            statusChart.data.datasets[0].backgroundColor = [\"#e74c3c\"];",
-                  "        }",
-                  "        statusChart.update();",
-                  "    });",
-                  "</script>",
-                  "`;",
-                  "",
-                  "function constructVisualizerPayload() {",
-                  "    var response = pm.response.json();",
-                  "    return {",
-                  "        userID: response.userID || \"N/A\",",
-                  "        userIDPresent: response.userID ? true : false",
-                  "    };",
-                  "}",
-                  "",
-                  "pm.visualizer.set(template, constructVisualizerPayload());"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            }
-          ],
-          "id": "18c5357f-bbd7-4cae-8254-bd4abb8d31b0",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseURL}}/api/staff/verifyTokenStaff?token=0d264a71-6dd6-40c4-a428-dfe98fcd92892f91d52b-50b2-43ea-abeb-62b2bcb719e7&passphrase={{PASSPHRASE}}",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "api",
-                "staff",
-                "verifyTokenStaff"
-              ],
-              "query": [
-                {
-                  "key": "token",
-                  "value": "0d264a71-6dd6-40c4-a428-dfe98fcd92892f91d52b-50b2-43ea-abeb-62b2bcb719e7"
-                },
-                {
-                  "key": "passphrase",
-                  "value": "{{PASSPHRASE}}"
-                }
+                "update"
               ]
             }
           },
@@ -404,15 +224,60 @@
                 "uuid": "b384fc5d-81fd-4d52-8761-07181db1fab2"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rt\":\"4X2DLPNA65SQN5BSHS33MOA42I\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
-              "raw": "{{baseURL}}/api/user/updateJWTUser",
+              "raw": "{{baseURL}}/api/user/jwt",
               "host": [
                 "{{baseURL}}"
               ],
               "path": [
                 "api",
                 "user",
-                "updateJWTUser"
+                "jwt"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateJWTStaff",
+          "id": "e1b8c91b-aa2d-432c-8a41-87d4ede04c98",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "b384fc5d-81fd-4d52-8761-07181db1fab2"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rt\":\"4X2DLPNA65SQN5BSHS33MOA42I\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/staff/jwt",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "staff",
+                "jwt"
               ]
             }
           },
@@ -420,379 +285,6 @@
         }
       ],
       "id": "1ca827fe-1fff-4f07-9c2e-08093643e04d"
-    },
-    {
-      "name": "Marketplace",
-      "item": [
-        {
-          "name": "Market_O_PlaceOrder",
-          "id": "3bc92c46-2729-4910-bb00-92b3090aeffd",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text",
-                "uuid": "30797833-57d2-4519-9a6a-cb3c551f073f"
-              }
-            ],
-            "url": {
-              "raw": "{{baseURL}}/api/order/placeOrder",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "api",
-                "order",
-                "placeOrder"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Market_O_RemoveOrder",
-          "id": "c5d99010-be4e-4ed1-9dc7-af11cfbd3aba",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text",
-                "uuid": "04b43460-2024-453b-82d4-6b873f7cc4cf"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"token\": \"bb60ff68-2ad6-42ff-a706-8ad9a0b994e725748345-4761-4759-bb20-fdfd7915783e\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseURL}}/api/order/removeOrder",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "api",
-                "order",
-                "removeOrder"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Market_O_OrderStatus",
-          "id": "81812288-e13e-46f5-96ed-83ffdbd09e92",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseURL}}/api/order/orderStatus?orderID",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "api",
-                "order",
-                "orderStatus"
-              ],
-              "query": [
-                {
-                  "key": "orderID",
-                  "value": null,
-                  "uuid": "a73bbf52-d190-4412-b74a-c354f81f57c7"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Market_O_UserOrders",
-          "id": "7b253949-f97d-4690-b986-2a9f5bb391cf",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseURL}}/api/order/userOrders?token&status",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "api",
-                "order",
-                "userOrders"
-              ],
-              "query": [
-                {
-                  "key": "token",
-                  "value": null,
-                  "uuid": "03b98e4b-6acf-4c48-8a46-7a96c3567397"
-                },
-                {
-                  "key": "status",
-                  "value": null,
-                  "uuid": "0e00893a-d87d-4a17-bf0f-e319babeec92"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Market_C_AddToCart",
-          "id": "e3969f4f-1b35-484d-b778-e01550540fc5",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text",
-                "uuid": "44e0a65a-2949-4d56-99fa-f20ae2de7536"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"itemID\": \"\",\r\n    \"quantity\": \"\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseURL}}/api/cart/addToCart",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "api",
-                "cart",
-                "addToCart"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Market_C_RemoveFromCart",
-          "id": "53e8c529-fdcc-4195-be0d-aac10df9d56a",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text",
-                "uuid": "a8089528-8c00-4b65-a0cc-859fae6cc469"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"token\": \"\",\r\n    \"itemID\": \"\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseURL}}/api/cart/removeFromCart",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "api",
-                "cart",
-                "removeFromCart"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Market_C_IncreaseItem",
-          "id": "d069082f-ef56-48e0-8c78-d8ab04dcdca6",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text",
-                "uuid": "39c3b382-4252-407e-bfc6-163e9de3a978"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"token\": \"\",\r\n    \"itemID\": \"\",\r\n    \"quantity\": \"\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseURL}}/api/cart/increaseItems",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "api",
-                "cart",
-                "increaseItems"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Market_C_DecreaseItem",
-          "id": "53f03ae3-9ca2-48ad-a9c9-e69839fb8ad4",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text",
-                "uuid": "9094cdaf-45ac-4ca1-941e-90ce58415af7"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"token\": \"\",\r\n    \"itemID\": \"\",\r\n    \"quantity\": \"\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseURL}}/api/cart/decreaseItems",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "api",
-                "cart",
-                "decreaseItems"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Market_C_ListCart",
-          "id": "906ebc33-a5c6-419d-a768-174474e55766",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseURL}}/api/cart/listCart",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "api",
-                "cart",
-                "listCart"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Market_C_ClearCart",
-          "id": "9e165945-44c1-403a-817c-f88166f6a31d",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text",
-                "uuid": "685edff0-7a50-4817-9c3b-652b4563b8c8"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"token\": \"\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseURL}}/api/cart/clearCart",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "api",
-                "cart",
-                "clearCart"
-              ]
-            }
-          },
-          "response": []
-        }
-      ],
-      "id": "fc8f9109-d374-4e72-b6fa-bdded74d3ca5",
-      "auth": {
-        "type": "jwt",
-        "jwt": [
-          {
-            "key": "payload",
-            "value": "{\r\n    \"getterID\": \"019bb6e8-3425-7972-bfdf-5a8563b9b69d\",\r\n    \"exp\": 1768303852\r\n}",
-            "type": "string"
-          },
-          {
-            "key": "secret",
-            "value": "{{JWTsecret}}",
-            "type": "string"
-          },
-          {
-            "key": "algorithm",
-            "value": "HS256",
-            "type": "string"
-          },
-          {
-            "key": "isSecretBase64Encoded",
-            "value": false,
-            "type": "boolean"
-          },
-          {
-            "key": "addTokenTo",
-            "value": "header",
-            "type": "string"
-          },
-          {
-            "key": "headerPrefix",
-            "value": "Bearer",
-            "type": "string"
-          },
-          {
-            "key": "queryParamKey",
-            "value": "token",
-            "type": "string"
-          },
-          {
-            "key": "header",
-            "value": "{}",
-            "type": "string"
-          }
-        ]
-      }
     },
     {
       "name": "Showcase",
